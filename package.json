@@ -1,15 +1,15 @@
 {
   "name": "react-native-game-engine-skia",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Some React Native components that make it easier to construct interactive scenes using the familiar update + draw lifecycle used in the development of many games ✨",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "types": "react-native-game-engine.d.ts",
+  "types": "react-native-game-engine-skia.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/psquizzle/react-native-game-engine-skia.git"
+    "url": "git+https://github.com/Ducorits/react-native-game-engine-skia.git"
   },
   "keywords": [
     "React",
@@ -23,15 +23,15 @@
   "author": "Boris Berak",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/psquizzle/react-native-game-engine-skia/issues"
+    "url": "https://github.com/Ducorits/react-native-game-engine-skia/issues"
   },
-  "homepage": "https://github.com/psquizzle/react-native-game-engine-skia",
+  "homepage": "https://github.com/Ducorits/react-native-game-engine-skia",
   "dependencies": {
-    "@shopify/react-native-skia": "^0.1.142",
     "rxjs": "^6.2.2"
   },
   "peerDependencies": {
     "react": ">= 16.3.0",
-    "react-native": "*"
+    "react-native": "*",
+    "@shopify/react-native-skia": "^0.1.142"
   }
 }
