@@ -1,25 +1,25 @@
 // Project: https://github.com/bberak/react-native-game-engine
 // TypeScript Version: 3.5
 
-declare module "react-native-game-engine" {
+declare module "react-native-game-engine-skia" {
     import * as React from "react";
     import { StyleProp, ViewStyle, ScaledSize } from "react-native";
-  
+
     interface DefaultRendererOptions {
       state: any;
       screen: ScaledSize;
     }
-  
+
     export function DefaultRenderer(defaultRendererOptions: DefaultRendererOptions): any;
-  
+
     export class DefaultTimer {}
-  
+
     interface TouchProcessorOptions {
       triggerPressEventBefore: number;
       triggerLongPressEventAfter: number;
       moveThreshold: number;
     }
-  
+
     export function DefaultTouchProcessor (touchProcessorOptions?: TouchProcessorOptions): any;
 
     export interface TimeUpdate {
@@ -36,7 +36,7 @@ declare module "react-native-game-engine" {
       time: TimeUpdate;
       touches: Array<TouchEvent>;
     }
-  
+
     export type GameEngineSystem = (entities: any, update: GameEngineUpdateEventOptionType) => any;
 
     export interface GameEngineProperties {
@@ -50,11 +50,11 @@ declare module "react-native-game-engine" {
       style?: StyleProp<ViewStyle>;
       children?: React.ReactNode;
     }
-  
+
     export class GameEngine extends React.Component<GameEngineProperties> {}
 
     export type TouchEventType = 'start' | 'end' | 'move' | 'press' | 'long-press';
-  
+
     export interface TouchEvent {
       event: {
         changedTouches: Array<TouchEvent>;
@@ -83,7 +83,7 @@ declare module "react-native-game-engine" {
       screen: ScaledSize;
       time: TimeUpdate;
     }
-  
+
     export interface GameLoopProperties {
       touchProcessor?: any;
       timer?: any;
@@ -92,7 +92,6 @@ declare module "react-native-game-engine" {
       style?: StyleProp<ViewStyle>;
       children?: React.ReactNode;
     }
-  
+
     export class GameLoop extends React.Component<GameLoopProperties> {}
   }
-  
