@@ -1,4 +1,6 @@
-// Project: https://github.com/bberak/react-native-game-engine
+// Project: https://github.com/Ducorits/react-native-game-engine-skia.git
+// Forked from: https://github.com/psquizzle/react-native-game-engine-skia
+// Original: https://github.com/bberak/react-native-game-engine
 // TypeScript Version: 3.5
 
 declare module "react-native-game-engine-skia" {

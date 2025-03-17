@@ -8,12 +8,12 @@ export default (entities, screen, layout) => {
       (key) => entities[key].renderer
     );
 
-    const ArrrayToReturn = new Array(ArrayOfEntities.length);
+    const ArrayToReturn = new Array(ArrayOfEntities.length);
     for (let i = 0; i < ArrayOfEntities.length; i++) {
       let entity = entities[ArrayOfEntities[i]];
 
       if (typeof entity.renderer === "object") {
-        ArrrayToReturn[i] = (
+        ArrayToReturn[i] = (
           <entity.renderer.type
             key={ArrayOfEntities[i]}
             screen={screen}
@@ -22,7 +22,7 @@ export default (entities, screen, layout) => {
           />
         );
       } else if (typeof entity.renderer === "function") {
-        ArrrayToReturn[i] = (
+        ArrayToReturn[i] = (
           <entity.renderer
             key={ArrayOfEntities[i]}
             screen={screen}
@@ -33,7 +33,7 @@ export default (entities, screen, layout) => {
       }
     }
 
-    return ArrrayToReturn;
+    return ArrayToReturn;
   };
 
   return calculateEntities();

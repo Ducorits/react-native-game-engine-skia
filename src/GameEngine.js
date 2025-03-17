@@ -25,6 +25,13 @@ const isPromise = obj => {
   );
 };
 
+/**
+ * The game engine.
+ * Interface for the Component-entity-systems architecture.
+ * Comes with a gameloop, event system, touch system and rendering system.
+ *
+ *
+ */
 export default class GameEngine extends Component {
   constructor(props) {
     super(props);
@@ -70,6 +77,9 @@ export default class GameEngine extends Component {
     }
   }
 
+  /**
+  * clears: touches, events, previousTime and previousDelta.
+  */
   clear = () => {
     this.touches.length = 0;
     this.events.length = 0;
@@ -77,17 +87,32 @@ export default class GameEngine extends Component {
     this.previousDelta = null;
   };
 
+  /**
+   * Clears old timings, touches and events.
+   * Then starts the game loop.
+   * dispatch "started" event type.
+   */
   start = () => {
     this.clear();
     this.timer.start();
     this.dispatch({ type: "started" });
   };
 
+  /**
+   * Stop gameLoop
+   * dispatch "stopped" event type.
+   */
   stop = () => {
     this.timer.stop();
     this.dispatch({ type: "stopped" });
   };
 
+  /**
+   * Swap old entities with new entities. removes all old entities.
+   * Once done dispatches the "swapped" event type.
+   *
+   * @param {any} newEntities
+   */
   swap = async newEntities => {
     if (isPromise(newEntities)) newEntities = await newEntities;
 
@@ -172,15 +197,12 @@ export default class GameEngine extends Component {
           onTouchStart={this.onTouchStartHandler}
           onTouchMove={this.onTouchMoveHandler}
           onTouchEnd={this.onTouchEndHandler}
-          >
-           <Canvas 
-          style={{height:windowHeight,width:windowWidth,backgroundColor:'green',opacity:1}}
-          
-       
         >
-          {this.props.background}
-          {this.props.renderer(this.state.entities, this.screen, this.layout)}
-        </Canvas>
+          <Canvas
+            style={{height:windowHeight,width:windowWidth}}
+          >
+            {this.props.renderer(this.state.entities, this.screen, this.layout)}
+          </Canvas>
         </View>
 
         <View
@@ -211,8 +233,8 @@ const css = StyleSheet.create({
   },
   entityContainer: {
     flex: 1,
-    //-- Looks like Android requires bg color here  
-      // 
+    //-- Looks like Android requires bg color here
+      //
     //-- to register touches. If we didn't worry about
     //-- 'children' (foreground) components capturing events,
     //-- this whole shenanigan could be avoided..
